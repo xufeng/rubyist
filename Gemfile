@@ -17,6 +17,8 @@ gem 'jquery-rails'
 
 gem "kaminari"  
 gem 'devise'
+gem "coderay"
+gem "RedCloth" 
 # Use unicorn as the web server
 gem 'unicorn'
 

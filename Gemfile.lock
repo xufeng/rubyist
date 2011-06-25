@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.7)
     actionmailer (3.1.0.rc4)
       actionpack (= 3.1.0.rc4)
       mail (~> 2.3.0)
@@ -40,6 +41,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    coderay (0.9.8)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -131,7 +133,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   capistrano
+  coderay
   coffee-script
   devise
   jquery-rails
