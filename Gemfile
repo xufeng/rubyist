@@ -15,6 +15,8 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
+gem "kaminari"  
+gem 'devise'
 # Use unicorn as the web server
 gem 'unicorn'
 
