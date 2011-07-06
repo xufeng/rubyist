@@ -1,6 +1,6 @@
 Rubyist::Application.routes.draw do
   resources :articles do
-    resources :comments, :only => [:destroy, :create, :edit]
+    resources :comments, :only => [:destroy, :create, :edit, :update]
   end
 
   devise_for :users

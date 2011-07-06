@@ -16,6 +16,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on'
 
+gem "cancan"
 gem "kaminari"  
 gem 'devise'
 gem "coderay"
