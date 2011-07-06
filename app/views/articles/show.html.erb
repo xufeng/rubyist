@@ -1,20 +1,58 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
+  <b>标题:</b>
   <%= @article.title %>
 </p>
 
 <p>
-  <b>Body:</b>
+  <b>内容:</b>
   <%= coderay(@article.body) %> 
 </p>
 
 <p>
-  <b>Tags:</b>
+  <b>标签:</b>
   <%= @article.tag_list %>
 </p>
 
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to '编辑', edit_article_path(@article) if @article.user == current_user %> 
+
+<div class="comments">
+  <ul>
+    <% @article.comments.each do |comment|%>
+      <li>
+        <%= comment.body %> <%= link_to("删除", article_comment_path(@article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="reply">
+  <%= form_for([@article, @comment]) do |f| %>
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+        <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :body, "回复" %><br />
+      <%= f.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+
+</div>
+
+
+

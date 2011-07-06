@@ -1,7 +1,7 @@
+#coding: utf-8
 class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-  # GET /articles
-  # GET /articles.json
+
   def index
     @articles = Article.all
 
@@ -11,19 +11,15 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # GET /articles/1
-  # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
-
+    @comment = @article.comments.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @article }
     end
   end
 
-  # GET /articles/new
-  # GET /articles/new.json
   def new
     @article = Article.new
 
@@ -35,13 +31,11 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
-  # POST /articles
-  # POST /articles.json
   def create
-    @article = Article.new(params[:article])
+    @article = Article.new(params[:article].merge(:user => current_user))
 
     respond_to do |format|
       if @article.save
@@ -54,11 +48,8 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PUT /articles/1
-  # PUT /articles/1.json
   def update
-    @article = Article.find(params[:id])
-
+    @article = current_user.articles.find(params[:id])
     respond_to do |format|
       if @article.update_attributes(params[:article])
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
@@ -70,10 +61,8 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # DELETE /articles/1
-  # DELETE /articles/1.json
   def destroy
-    @article = Article.find(params[:id])
+    @article = current_user.aticles.find(params[:id])
     @article.destroy
 
     respond_to do |format|
@@ -81,4 +70,5 @@ class ArticlesController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end

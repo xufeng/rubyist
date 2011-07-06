@@ -1,5 +1,7 @@
 Rubyist::Application.routes.draw do
-  resources :articles
+  resources :articles do
+    resources :comments, :only => [:destroy, :create, :edit]
+  end
 
   devise_for :users
   root :to => "articles#index"
