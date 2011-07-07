@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 39ffb6214b8796bd5abd6216da38d0cb7f6eec30
+  branch: rails-3.1
+  specs:
+    rails_admin (0.0.1)
+      builder (~> 3.0.0)
+      fastercsv
+      rails (~> 3.1.0.rc1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -55,6 +65,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.0)
       multi_json (~> 1.0)
+    fastercsv (1.5.4)
     highline (1.6.2)
     hike (1.1.0)
     i18n (0.6.0)
@@ -147,6 +158,7 @@ DEPENDENCIES
   kaminari
   mysql2
   rails (= 3.1.0.rc4)
+  rails_admin!
   sass-rails (~> 3.1.0.rc)
   uglifier
   unicorn

@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'acts-as-taggable-on'
 
 gem "cancan"
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => "rails-3.1"
 gem "kaminari"  
 gem 'devise'
 gem "coderay"

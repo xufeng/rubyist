@@ -1,11 +1,14 @@
 Rubyist::Application.routes.draw do
+
   resources :articles do
     resources :comments, :only => [:destroy, :create, :edit, :update]
   end
 
-  devise_for :users
-  root :to => "articles#index"
+  root :to => "articles#index" 
 
+  devise_for :users
+
+  mount RailsAdmin::Engine => "/admin"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
