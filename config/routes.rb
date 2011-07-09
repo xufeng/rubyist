@@ -5,8 +5,10 @@ Rubyist::Application.routes.draw do
   end
   
   resources :users, :only => :show do
-    resources :articles, :only => [:index, :show]
-    resources :tags, :only => [:index, :show]
+    scope :module => "user" do
+      resources :articles, :only => [:index, :show]
+      resources :tags, :only => [:index, :show]
+    end
   end
 
   resources :tags, :only => :index
