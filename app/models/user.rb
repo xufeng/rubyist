@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :articles, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  acts_as_tagger
 end

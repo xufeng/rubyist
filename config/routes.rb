@@ -3,6 +3,13 @@ Rubyist::Application.routes.draw do
   resources :articles do
     resources :comments, :only => [:destroy, :create, :edit, :update]
   end
+  
+  resources :users, :only => :show do
+    resources :articles, :only => [:index, :show]
+    resources :tags, :only => [:index, :show]
+  end
+
+  resources :tags, :only => :index
 
   root :to => "articles#index" 
 
