@@ -1,5 +1,7 @@
 Rubyist::Application.routes.draw do
 
+  get "tags/show"
+
   resources :articles do
     resources :comments, :only => [:destroy, :create, :edit, :update]
   end
@@ -11,7 +13,7 @@ Rubyist::Application.routes.draw do
     end
   end
 
-  resources :tags, :only => :index
+  resources :tags, :only => [:index, :show]
 
   root :to => "articles#index" 
 

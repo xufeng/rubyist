@@ -1,2 +1,7 @@
-<h1>User::Tags#index</h1>
-<p>Find me in app/views/user/tags/index.html.erb</p>
+<ul>
+    <% @tags.each do |tag| %>
+        <li>
+            <%= link_to tag.name, user_tag_path(@user, tag) %>
+        </li>
+    <% end %>
+</ul>
