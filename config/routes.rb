@@ -1,11 +1,11 @@
 Rubyist::Application.routes.draw do
 
-  get "tags/show"
+  devise_for :users
 
   resources :articles do
     resources :comments, :only => [:destroy, :create, :edit, :update]
   end
-  
+
   resources :users, :only => :show do
     scope :module => "user" do
       resources :articles, :only => [:index, :show]
@@ -16,8 +16,6 @@ Rubyist::Application.routes.draw do
   resources :tags, :only => [:index, :show]
 
   root :to => "articles#index" 
-
-  devise_for :users
 
   mount RailsAdmin::Engine => "/admin"
   # The priority is based upon order of creation:
