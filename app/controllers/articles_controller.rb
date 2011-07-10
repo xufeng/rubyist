@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(params[:article].merge(:user => current_user))
+    @article = Article.new(params[:article].reject{|key, _| key == "tag_list"}.merge(:user => current_user))
     respond_to do |format|
       if @article.save
         current_user.tag(@article, :with => params[:article][:tag_list], :on => :tags)
@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
   def update
     @article = current_user.articles.find(params[:id])
     respond_to do |format|
-      if @article.update_attributes(params[:article])
+      if @article.update_attributes(params[:article].reject{|key, _| key == "tag_list"})
         current_user.tag(@article, :with => params[:article][:tag_list], :on => :tags)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { head :ok }
