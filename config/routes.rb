@@ -6,7 +6,7 @@ Rubyist::Application.routes.draw do
     resources :comments, :only => [:destroy, :create, :edit, :update]
   end
 
-  resources :users, :only => :show do
+  resources :user, :only => :show do
     scope :module => "user" do
       resources :articles, :only => [:index, :show]
       resources :tags, :only => [:index, :show]

@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   acts_as_tagger
 
+
+  def to_param
+    self.nick_name
+  end
+
 end
