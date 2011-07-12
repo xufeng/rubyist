@@ -18,13 +18,14 @@
 
 <div class="comments">
     <ul>
-        <% @article.comments.each do |comment|%>
+        <% @comments.each do |comment|%>
             <li>
                 <%= comment.body %> <%= link_to("删除", article_comment_path(@article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
             </li>
         <% end %>
     </ul>
 </div>
+<%= paginate @comments %>
 <div class="reply">
     <%= form_for([@article, @comment]) do |f| %>
         <% if @comment.errors.any? %>

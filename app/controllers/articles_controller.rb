@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comment = @article.comments.new
+    @comments = @article.comments.page(params[:page])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @article }
