@@ -8,13 +8,18 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <ul class="hmenu">
-      <%= render 'devise/menu/registration_items' %>
-      <%= render 'devise/menu/login_items' %>
-    </ul>
-    <%= yield %>
-
+    <div id="container" >
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <ul class="hmenu">
+        <%= render 'devise/menu/registration_items' %>
+        <%= render 'devise/menu/login_items' %>
+      </ul>
+      <div>
+        <%= render "left" %>
+      </div>
+      <%= yield %>
+      <div class="clear"></div>
+    </div>
   </body>
 </html>
