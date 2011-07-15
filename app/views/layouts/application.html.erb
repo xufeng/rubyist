@@ -15,6 +15,16 @@
         <%= render 'devise/menu/registration_items' %>
         <%= render 'devise/menu/login_items' %>
       </ul>
+      <div id="navigation">
+        <ul id="menu" class="ui-tabs-nav menu">
+          <%= link_to("首页", root_path) %>
+          <%= link_to("文章", articles_path) %>
+          <%= link_to("标签", tags_path) %>
+          <% if current_user %>
+            <%= link_to("我的文章", user_articles_path(current_user)) %>
+          <% end %>
+        </ul>
+      </div>
       <div>
         <%= render "left" %>
       </div>
