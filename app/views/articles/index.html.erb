@@ -1,27 +1,12 @@
-<h1>Listing articles</h1>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to(article.title, article_path(article)) %>
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th>User</th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
+    </li>
+  <% end %>
+</ul>
 
-    <% @articles.each do |article| %>
-        <tr>
-            <td><%= article.title %></td>
-            <td><%= article.body %></td>
-            <td><%= article.user_id %></td>
-            <td><%= link_to 'Show', article %></td>
-            <td><%= link_to 'Edit', edit_article_path(article) %></td>
-            <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
-        </tr>
-    <% end %>
-</table>
 <%= paginate @articles %>
-<br />
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to '发表文章', new_article_path %>

@@ -13,8 +13,7 @@
     <%= tag_with_link(@article) %>
 </p>
 
-
-<%= link_to '编辑', edit_article_path(@article) if @article.user == current_user %> 
+<%= operation_links_for(current_user, @article)%>
 
 <div class="comments">
     <ul>

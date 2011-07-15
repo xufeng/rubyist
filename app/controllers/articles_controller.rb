@@ -64,11 +64,11 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = current_user.aticles.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to articles_url }
+      format.html { redirect_to user_articles_path(current_user), :notice => "删除成功！" }
       format.json { head :ok }
     end
   end

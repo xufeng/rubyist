@@ -9,8 +9,6 @@
   </head>
   <body>
     <div id="container" >
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <ul class="hmenu">
         <%= render 'devise/menu/registration_items' %>
         <%= render 'devise/menu/login_items' %>
@@ -25,6 +23,8 @@
           <% end %>
         </ul>
       </div>
+      <p class="notice"><%= notice %></p>
+
       <div>
         <%= render "left" %>
       </div>
