@@ -1,52 +1,53 @@
-<p>
-    <b>标题:</b>
-    <%= @article.title %>
-</p>
+<div class="title">
+  <%= @article.title %>
+</div>
+<div>
+  作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
+<span>
+  时间：<%= @article.created_at.to_s(:db)%>
+</span>
+</div>
+<div class="content">
+  <%= coderay(@article.body) %>
 
-<p>
-    <b>内容:</b>
-    <%= coderay(@article.body) %>
-</p>
-
-<p>
-    <b>标签:</b>
+  <p>
+    <b>标签</b>
     <%= tag_with_link(@article) %>
-</p>
-
-<%= operation_links_for(current_user, @article)%>
-
+  </p>
+  <%= operation_links_for(current_user, @article)%>
+</div>
 <div class="comments">
-    <ul>
-        <% @comments.each do |comment|%>
-            <li>
-                <%= comment.body %> <%= link_to("删除", article_comment_path(@article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
-            </li>
-        <% end %>
-    </ul>
+  <ul>
+    <% @comments.each do |comment|%>
+      <li>
+        <%= comment.body %> <%= link_to("删除", article_comment_path(@article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
+      </li>
+    <% end %>
+  </ul>
 </div>
 <%= paginate @comments %>
 <div class="reply">
-    <%= form_for([@article, @comment]) do |f| %>
-        <% if @comment.errors.any? %>
-            <div id="error_explanation">
-                <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  <%= form_for([@article, @comment]) do |f| %>
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-                <ul>
-                    <% @comment.errors.full_messages.each do |msg| %>
-                        <li><%= msg %></li>
-                    <% end %>
-                </ul>
-            </div>
-        <% end %>
-
-        <div class="field">
-            <%= f.label :body, "回复" %><br />
-            <%= f.text_area :body %>
-        </div>
-        <div class="actions">
-            <%= f.submit %>
-        </div>
+        <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
+
+    <div class="field">
+      <%= f.label :body, "回复" %><br />
+      <%= f.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit("发表") %>
+    </div>
+  <% end %>
 
 
 </div>

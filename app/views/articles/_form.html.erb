@@ -12,18 +12,18 @@
     <% end %>
 
     <div class="field">
-        <%= f.label :title %><br />
+        <%= f.label :title, "标题" %><br />
         <%= f.text_field :title %>
     </div>
     <div class="field">
-        <%= f.label :body %><br />
+        <%= f.label :body, "内容" %><br />
         <%= f.text_area :body %>
     </div>
     <div class="field">
-        <%= f.label :tag_list %><br />
+        <%= f.label :tag_list, "标签" %><br />
         <%= f.text_field :tag_list %>
     </div>
     <div class="actions">
-        <%= f.submit %>
+        <%= f.submit("发表") %>
     </div>
 <% end %>
