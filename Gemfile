@@ -20,7 +20,8 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch =>
 gem "kaminari"  
 gem 'devise'
 gem "coderay"
-gem "RedCloth" 
+#BBRedCloth for bbcode and textite
+gem 'BBRedCloth', :require=>"RedCloth"
 # Use unicorn as the web server
 gem 'unicorn'
 
