@@ -6,6 +6,8 @@ zh_cn:
       not_locked: "没有锁定"
 
   devise:
+    omniauth_callbacks:
+      success: '登录成功'
     failure:
       unauthenticated: '你需要登录或注册后才能继续'
       unconfirmed: '你需要验证账户后才能继续'

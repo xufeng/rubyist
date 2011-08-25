@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.0.rc5'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -16,10 +16,11 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on'
 
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => "rails-3.1"
+#gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => "rails-3.1"
 gem "kaminari"  
 gem 'devise'
 gem "coderay"
+gem "oa-oauth", :require => "omniauth/oauth"
 #BBRedCloth for bbcode and textite
 gem 'BBRedCloth', :require=>"RedCloth"
 # Use unicorn as the web server

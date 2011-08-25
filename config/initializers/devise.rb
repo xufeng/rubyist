@@ -4,6 +4,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
   config.mailer_sender = "hoooopo@gmail.com"
+  config.omniauth :github, "834ba5d17fb25fd0cd45", "8fcbb8dd0d87d2d0dcf0bc3817fbb5f407e31289"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
