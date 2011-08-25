@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110825161909) do
+ActiveRecord::Schema.define(:version => 20110825171230) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110825161909) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comments_count", :default => 0
   end
 
   create_table "comments", :force => true do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20110825161909) do
     t.datetime "updated_at"
     t.boolean  "admin"
     t.integer  "articles_count",                        :default => 0
+    t.integer  "comments_count",                        :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
