@@ -1,35 +1,53 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Rubyist</title>
-    <%= stylesheet_link_tag  "application" %>
-    <%= stylesheet_link_tag  'coderay' %> 
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div id="container" >
-      <ul class="hmenu">
-        <%= render 'devise/menu/registration_items' %>
-        <%= render 'devise/menu/login_items' %>
-      </ul>
-      <div id="navigation">
-        <ul id="menu" class="ui-tabs-nav menu">
-          <%= link_to("首页", root_path) %>
-          <%= link_to("文章", articles_path) %>
-          <%= link_to("标签", tags_path) %>
-          <% if current_user %>
-            <%= link_to("我的文章", user_articles_path(current_user)) %>
-          <% end %>
-        </ul>
-      </div>
-      <p class="notice"><%= notice %></p>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Articles Index</title>
+	<%= stylesheet_link_tag  "application" %>
+	<%= stylesheet_link_tag  'print' %>  
+	<%= stylesheet_link_tag  'coderay' %> 
+	<%= stylesheet_link_tag  'screen' %>
+	
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	</head>
+	<body>
+		<div id="wrapper">
+			<header>
+				<p>Rubyist</p>
+				<ul class="hmenu">
+					<%= render 'devise/menu/registration_items' %>
+					<%= render 'devise/menu/login_items' %>
+				</ul>
+			</header>
+			<nav>
+				<ul>
+					<li><%= link_to("首页", root_path, :class => "active") %></li>
+					<li><%= link_to("文章", articles_path) %></li>
+					<li><%= link_to("标签", tags_path) %></li>
+					<% if current_user %>
+					<li> <%= link_to("我的文章", user_articles_path(current_user)) %></li>
+					<% end %>
+				</ul>
+			</nav>
+			<article id="main">
+				<%= yield %>
+			</article>
+			<aside id="sidebar">
+				<h2>Tags</h2>
+				<%= render "left"%>
+			</aside>
+			<div id="footer">
+				<p>All original content is &#169; 2011, Rubyist.</p>
 
-      <div>
-        <%= render "left" %>
-      </div>
-      <%= yield %>
-      <div class="clear"></div>
-    </div>
-  </body>
-</html>
+				<p>This material is provided under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-Share Alike 3.0 License</a>.</p>
+				<p>Made with <a href="http://nanoc.stoneship.org" target="_blank">Nanoc</a>.</p>
+
+			</footer>
+		</div>
+	</body>
+	</html>
+

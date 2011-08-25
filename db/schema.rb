@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,13 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707164229) do
+ActiveRecord::Schema.define(:version => 20110825161909) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.integer  "comments_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,11 +71,10 @@ ActiveRecord::Schema.define(:version => 20110707164229) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "nick_name"
-    t.integer  "articles_count",                        :default => 0
-    t.integer  "comments_count",                        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
+    t.integer  "articles_count",                        :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
