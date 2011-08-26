@@ -1,0 +1,4 @@
+h1. bbcode and texitle
+* "BBCode":http://en.wikipedia.org/wiki/BBCode
+* "Texitle":http://en.wikipedia.org/wiki/Textile_(markup_language)
+* "RedCloth":https://github.com/hooopo/redcloth
