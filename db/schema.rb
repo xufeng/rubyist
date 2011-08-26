@@ -11,21 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110825171230) do
+ActiveRecord::Schema.define(:version => 20110707164229) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
+    t.integer  "comments_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count", :default => 0
   end
 
   create_table "comments", :force => true do |t|
     t.integer  "article_id"
     t.text     "body"
     t.integer  "user_id"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,11 +75,11 @@ ActiveRecord::Schema.define(:version => 20110825171230) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "nick_name"
+    t.integer  "articles_count",                        :default => 0
+    t.integer  "comments_count",                        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
-    t.integer  "articles_count",                        :default => 0
-    t.integer  "comments_count",                        :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -21,6 +21,7 @@ gem "kaminari"
 gem 'devise'
 gem "coderay"
 gem "oa-oauth", :require => "omniauth/oauth"
+gem 'awesome_nested_set', ">= 2.0.0"
 #BBRedCloth for bbcode and textite
 gem 'BBRedCloth', :require=>"RedCloth"
 # Use unicorn as the web server

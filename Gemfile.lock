@@ -35,6 +35,8 @@ GEM
       rails
     addressable (2.2.6)
     arel (2.2.1)
+    awesome_nested_set (2.0.1)
+      activerecord (>= 3.0.0)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
     capistrano (2.8.0)
@@ -157,6 +159,7 @@ PLATFORMS
 DEPENDENCIES
   BBRedCloth
   acts-as-taggable-on
+  awesome_nested_set (>= 2.0.0)
   capistrano
   coderay
   coffee-script
