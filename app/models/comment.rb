@@ -5,4 +5,5 @@ class Comment < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
 
   validates :body, :presence => true
+  delegate :avatar_token, :to => :user, :prefix => true, :allow_nil => true 
 end

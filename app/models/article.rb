@@ -6,4 +6,5 @@ class Article < ActiveRecord::Base
   validates :title, :presence => true
   validates :body,  :presence => true
   delegate :nick_name, :to => :user, :prefix => true, :allow_nil => true 
+  delegate :avatar_token, :to => :user, :prefix => true, :allow_nil => true 
 end

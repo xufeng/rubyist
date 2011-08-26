@@ -12,4 +12,10 @@ module ApplicationHelper
   def format(text)
     bbcode(coderay(text)).force_encoding("UTF-8").encode("UTF-8").html_safe
   end
+
+  def avatar_url(token, size = 64)
+    "http://gravatar.com/avatar/#{token}.png?s=#{size}&d=#{CGI.escape('http://assets.github.com/images/gravatars/gravatar-140.png')}"
+  end
+
+
 end
