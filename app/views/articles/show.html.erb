@@ -1,53 +1,55 @@
 <div class="title">
-  <h2><%= @article.title %></h2>
+	<h2><%= @article.title %></h2>
 </div>
 <div>
-  作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
-<span>
-  时间：<%= @article.created_at.to_s(:db)%>
-</span>
+	作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
+	<span>
+		时间：<%= @article.created_at.to_s(:db)%>
+	</span>
 </div>
 <div class="content">
-  <%= format(@article.body) %>
+	<%= format(@article.body) %>
 
-  <p>
-    标签
-    <%= tag_with_link(@article) %>
-  </p>
-  <%= operation_links_for(current_user, @article)%>
+	<p>
+		标签
+		<%= tag_with_link(@article) %>
+	</p>
+	<%= operation_links_for(current_user, @article)%>
 </div>
 <div class="comments">
-  <ul>
-    <% @comments.each do |comment|%>
-      <li>
-        <%= format(comment.body) %> <%= link_to("删除", article_comment_path(@article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
-      </li>
-    <% end %>
-  </ul>
+	<ul>
+		<% nested_set_options(@comments) do |comment|%>
+		<li>
+			<%= "*" * comment.level %><%= format(comment.body) %> <%= link_to("删除", article_comment_path(@article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
+			<%= link_to("回复", "javascript:document.getElementById('comment_parent_id').value=#{comment.id}")%>
+		</li>
+		<% end %>
+	</ul>
 </div>
 <%= paginate @comments %>
 <div class="reply">
-  <%= form_for([@article, @comment]) do |f| %>
-    <% if @comment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+	<%= form_for([@article, @comment]) do |f| %>
+	<% if @comment.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-        <ul>
-          <% @comment.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+		<ul>
+			<% @comment.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
 
-    <div class="field">
-      <%= f.label :body, "回复" %><br />
-      <%= f.text_area :body %>
-    </div>
-    <div class="actions">
-      <%= f.submit("发表") %>
-    </div>
-  <% end %>
+	<div class="field">
+		<%= f.hidden_field :parent_id %>
+		<%= f.label :body, "回复" %><br />
+		<%= f.text_area :body %>
+	</div>
+	<div class="actions">
+		<%= f.submit("发表") %>
+	</div>
+	<% end %>
 
 
 </div>
