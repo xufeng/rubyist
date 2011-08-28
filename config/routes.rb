@@ -14,6 +14,8 @@ Rubyist::Application.routes.draw do
   end
 
   resources :tags, :only => [:index, :show]
+  
+  match "about" => "about#index", :as => :about
 
   root :to => "articles#index" 
 
