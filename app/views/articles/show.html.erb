@@ -22,7 +22,7 @@
 		<li>
 			<div class="avatar"><%= image_tag avatar_url(comment.user_avatar_token), :size => "64x64", :alt => "Avatar" %></div>
 			<%= "*" * comment.level %><%= format(comment.body) %> <%= link_to("删除", article_comment_path(@article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
-			<%= link_to("回复", "javascript:document.getElementById('comment_parent_id').value=#{comment.id}")%>
+			<%= link_to("回复", "#comment_body")%>
 		</li>
 		<% end %>
 	</ul>

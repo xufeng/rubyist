@@ -1,1 +1,8 @@
-
+<h2>热门标签</h2>
+<ul>
+    <% ActsAsTaggableOn::Tag.limit(10).each do |tag| %>
+        <li>
+            <%= link_to tag.name, tag_path(tag) %>
+        </li>
+    <% end %>
+</ul>

@@ -1,6 +1,6 @@
-<h1>所有标签</h1>
+<h2>他的标签</h2>
 <ul>
-    <% @tags.each do |tag| %>
+    <% @user.articles.tag_counts_on(:tags).each do |tag| %>
         <li>
             <%= link_to tag.name, tag_path(tag) %>
         </li>

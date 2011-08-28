@@ -1,0 +1,8 @@
+<h2>热门用户</h2>
+<ul>
+    <% User.limit(10).order("id DESC").each do |user| %>
+        <li>
+            <%= link_to user.nick_name, user_articles_path(user) %>
+        </li>
+    <% end %>
+</ul>
