@@ -7,21 +7,23 @@
 	<%= stylesheet_link_tag  'print' %>  
 	<%= stylesheet_link_tag  'coderay' %> 
 	<%= stylesheet_link_tag  'screen' %>
-	
+
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+		<![endif]-->
 	</head>
 	<body>
 		<div id="wrapper">
 			<header>
+				<p style="float:right">
+					<ul class="hmenu">
+						<%= render 'devise/menu/registration_items' %>
+						<%= render 'devise/menu/login_items' %>
+					</ul>
+				</p>
 				<p>Rubyist</p>
-				<ul class="hmenu">
-					<%= render 'devise/menu/registration_items' %>
-					<%= render 'devise/menu/login_items' %>
-				</ul>
 			</header>
 			<nav>
 				<ul>
