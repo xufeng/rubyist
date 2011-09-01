@@ -23,8 +23,8 @@ gem 'awesome_nested_set', ">= 2.0.0"
 gem 'BBRedCloth', :require=>"RedCloth"
 
 group :development do
-  gem "heroku"
   gem 'mysql2'
+  gem "heroku"
   # Deploy with Capistrano
   gem 'capistrano'
 end
@@ -33,6 +33,7 @@ group :production do
   gem 'pg'
   # Use unicorn as the web server
   gem 'thin'
+  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
 
 # To use debugger
