@@ -1,14 +1,13 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 # Asset template engines
-gem 'json'
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-script'
+  gem 'uglifier'
+end
 
 gem 'jquery-rails'
 gem 'acts-as-taggable-on'
@@ -25,13 +24,11 @@ gem 'BBRedCloth', :require=>"RedCloth"
 group :development do
   gem 'mysql2'
   gem "heroku"
-  # Deploy with Capistrano
   gem 'capistrano'
 end
 
 group :production do
   gem 'pg'
-  # Use unicorn as the web server
   gem 'thin'
   gem 'therubyracer-heroku', '0.8.1.pre3'
 end
