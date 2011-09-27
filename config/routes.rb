@@ -3,7 +3,7 @@ Rubyist::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :articles do
-    resources :comments, :only => [:destroy, :create, :edit, :update]
+    resources :comments, :only => [:new, :destroy, :create]
   end
 
   resources :user, :only => :show do

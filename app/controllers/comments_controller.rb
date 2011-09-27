@@ -2,6 +2,11 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!
 
+  def new
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.new(:parent_id => params[:parent_id])
+  end
+
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.new(params[:comment].merge(:user => current_user))
