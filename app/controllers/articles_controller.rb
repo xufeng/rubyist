@@ -3,74 +3,46 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @articles = Article.page(params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @articles }
-    end
+    @articles = Article.includes(:user).page(params[:page])
   end
 
   def show
     @article = Article.find(params[:id])
     @comment = @article.comments.new
     @comments = @article.comments.includes(:user).page(params[:page]).roots
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @article }
-    end
   end
 
   def new
     @article = Article.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @article }
-    end
   end
 
-  # GET /articles/1/edit
   def edit
     @article = current_user.articles.find(params[:id])
   end
 
   def create
     @article = Article.new(params[:article].reject{|key, _| key == "tag_list"}.merge(:user => current_user))
-    respond_to do |format|
-      if @article.save
-        current_user.tag(@article, :with => params[:article][:tag_list], :on => :tags)
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render json: @article, status: :created, location: @article }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.save
+      current_user.tag(@article, :with => params[:article][:tag_list], :on => :tags)
+      redirect_to @article, :notice => '文章成功！'
+    else
+      render :action => "new" 
     end
   end
 
   def update
     @article = current_user.articles.find(params[:id])
-    respond_to do |format|
-      if @article.update_attributes(params[:article].reject{|key, _| key == "tag_list"})
-        current_user.tag(@article, :with => params[:article][:tag_list], :on => :tags)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.update_attributes(params[:article].reject{|key, _| key == "tag_list"})
+      current_user.tag(@article, :with => params[:article][:tag_list], :on => :tags)
+      redirect_to @article, :notice => '文章更新成功！'
+    else
+      render :action => "edit"
     end
   end
 
   def destroy
     @article = current_user.articles.find(params[:id])
     @article.destroy
-
-    respond_to do |format|
-      format.html { redirect_to user_articles_path(current_user), :notice => "删除成功！" }
-      format.json { head :ok }
-    end
+    redirect_to user_articles_path(current_user), :notice => "删除成功！"
   end
-
 end
