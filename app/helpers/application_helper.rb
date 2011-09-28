@@ -9,8 +9,9 @@ module ApplicationHelper
     RedCloth.new(text,[:bbcode]).to_html
   end
 
-  def format(text)
-    gist(bbcode(coderay(text)).force_encoding("UTF-8").encode("UTF-8")).html_safe
+  def format(text, html_safed = true)
+    html = gist(bbcode(coderay(text)).force_encoding("UTF-8").encode("UTF-8"))
+    html_safed ? html.html_safe : html 
   end
 
   def avatar_url(token, size = 64)
