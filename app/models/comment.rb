@@ -1,6 +1,6 @@
 #coding: utf-8
 class Comment < ActiveRecord::Base
-  acts_as_nested_set
+  acts_as_tree(:orphan_strategy => :rootify)
   belongs_to :article, :counter_cache => true
   belongs_to :user, :counter_cache => true
 
