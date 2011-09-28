@@ -15,7 +15,7 @@
        <div class="field">
        <%= f.hidden_field :parent_id %>
        <%= f.label :body, "回复" %><br />
-       <%= f.text_area :body %>
+       <%= f.text_area :body, :cols => 80, :rows => 20 %>
      </div>
      <div class="actions">
        <%= f.submit("发表") %>
