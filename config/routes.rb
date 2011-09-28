@@ -19,7 +19,7 @@ Rubyist::Application.routes.draw do
 
   root :to => "articles#index" 
 
-  #mount RailsAdmin::Engine => "/admin"
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
