@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="utf-8">
-	<title>Articles Index</title>
+        <title><%= yield(:title) || "Rubyist"%></title>
 	<%= stylesheet_link_tag  "application" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
