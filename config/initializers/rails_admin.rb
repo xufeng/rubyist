@@ -9,4 +9,18 @@ RailsAdmin.config do |config|
       sort_by :id
     end
   end
+
+  config.model Comment do
+    label "全部评论"
+    list do
+      sort_by :id
+    end
+  end
+
+  config.model User do
+    label "全部用户"
+    list do
+      sort_by :id
+    end
+  end
 end
