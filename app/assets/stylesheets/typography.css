@@ -68,16 +68,16 @@ header p {
     font-family: Georgia, serif;
 }
 
-nav ol, nav ul {
+.nav ol, .nav ul {
     font-size: 1.1667em;
     line-height: 1.286em;
 }
 
-nav li {
+.nav li {
     margin-right: 3em;
 }
 
-nav p {
+.nav p {
     font-size: 0.8333em;
     line-height: 1.8em;
 }

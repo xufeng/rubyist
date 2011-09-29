@@ -25,19 +25,19 @@ header {
     width: 930px;
 }
 
-nav {
+.nav {
     float: left;
     margin-top: 0;
     margin-bottom: 1.5em;
     width: 930px;
 }
 
-nav ul {
+.nav ul {
     margin: 0.75em 0.75em 0.75em 0;
 	list-style-type:none;	
 }
 
-nav li {
+.nav li {
 	display:inline;
 }
 
