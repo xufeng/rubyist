@@ -1,10 +1,14 @@
+<% content_for(:title) do %>
+  <%= @article.title %> 
+<% end %>
+
 <div class="title">
   <h2><%= @article.title %></h2>
 </div>
 <div>
   作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
 <span>
-  时间：<%= @article.created_at.to_s(:db)%>
+  时间：<%= @article.created_at %>
 </span>
  </div>
  <div class="content">

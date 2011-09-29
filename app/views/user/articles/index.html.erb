@@ -1,9 +1,12 @@
+<% content_for(:title) do %>
+  <%= @user.nick_name %>的文章
+<% end %>
 <h1><%= @user.nick_name %>的文章</h1>
 <ul>
-    <% @articles.each do |article| %>
-        <li>
-            <%= link_to(article.title, user_article_path(@user, article)) %>
-        </li>
-    <% end %>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to(article.title, user_article_path(@user, article)) %>
+    </li>
+  <% end %>
 </ul>
 <%= paginate @articles %>
