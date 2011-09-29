@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to article_path(@article), :notice => "评论成功！"
     else
-      render "articles/show", :notice => "评论失败！"
+      render "comments/new", :notice => "评论失败！"
     end
   end
 
