@@ -1,0 +1,11 @@
+zh-CN:
+  activerecord:
+    models:
+      article: 文章 
+    attributes:
+      article:
+        title: 标题        
+        body: 内容
+        comments_count: 评论数量
+        created_at: 创建时间
+        updated_at: 更新时间

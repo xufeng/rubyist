@@ -1,0 +1,10 @@
+zh-CN:
+  activerecord:
+    models:
+      comment: 评论 
+    attributes:
+      comment:
+        body: 内容
+        ancestry: 祖先 
+        created_at: 创建时间
+        updated_at: 更新时间
