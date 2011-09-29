@@ -1,4 +1,4 @@
-<h1>所有文章</h1>
+<h1>最新文章</h1>
 <ul class="articles-list">
 	<% @articles.each do |article| %>
 	<li>
@@ -7,4 +7,4 @@
 	</li>
 	<% end %>
 </ul>
-<%= paginate @articles %>
+<%= link_to '发表文章', new_article_path %>

@@ -16,8 +16,9 @@ Rubyist::Application.routes.draw do
   resources :tags, :only => [:index, :show]
   
   match "about" => "about#index", :as => :about
+  match "site"  => "site#index",  :as => :site
 
-  root :to => "articles#index" 
+  root :to => "site#index" 
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   # The priority is based upon order of creation:
