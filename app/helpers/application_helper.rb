@@ -6,7 +6,7 @@ module ApplicationHelper
   end    
 
   def bbcode(text)
-    RedCloth.new(text,[:bbcode]).to_html
+    RedCloth.new(text,[:bbcode, {:hard_breaks => false}]).to_html
   end
 
   def format(text, html_safed = true)
