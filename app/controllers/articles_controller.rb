@@ -4,6 +4,10 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.includes(:user).page(params[:page])
+    respond_to do |format|
+      format.html 
+      format.rss
+    end
   end
 
   def show
