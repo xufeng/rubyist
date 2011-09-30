@@ -1,6 +1,7 @@
 <%= div_for comment do %>
   <div class="avatar"><%= image_tag avatar_url(comment.user_avatar_token), :size => "64x64", :alt => "Avatar" %></div>
   <div class="main">
+    <%= render "comments/comment_headline", :comment => comment %>
     <div class="comment_content">
       <%= format(comment.body) %>
       <div class="actions">

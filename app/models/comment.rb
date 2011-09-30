@@ -8,4 +8,5 @@ class Comment < ActiveRecord::Base
   validates :body, :presence => true
 
   delegate :avatar_token, :to => :user, :prefix => true, :allow_nil => true 
+  delegate :nick_name,    :to => :user, :prefix => true, :allow_nil => true
 end
