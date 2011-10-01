@@ -1,4 +1,5 @@
 #coding: utf-8
+require "ranking"
 class Article < ActiveRecord::Base
   acts_as_taggable_on :tags
 
