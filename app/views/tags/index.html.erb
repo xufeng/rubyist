@@ -1,12 +1,12 @@
 <% content_for(:title) do %>
-  所有标签 
+    所有标签
 <% end %>
 
 <h1>所有标签</h1>
 <ul>
-  <% @tags.each do |tag| %>
-    <li>
-      <%= link_to tag.name, tag_path(tag) %>
-    </li>
-  <% end %>
+    <% @tags.each do |tag| %>
+        <li>
+            <%= link_to tag.name, tag_path(tag) %>
+        </li>
+    <% end %>
 </ul>

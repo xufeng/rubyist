@@ -1,14 +1,14 @@
 <%= div_for comment do %>
-  <div class="avatar"><%= image_tag avatar_url(comment.user_avatar_token), :size => "64x64", :alt => "Avatar" %></div>
-  <div class="main">
-    <%= render "comments/comment_headline", :comment => comment %>
-    <div class="comment_content">
-      <%= format(comment.body) %>
-      <div class="actions">
-        <%= link_to("回复", new_article_comment_path(article, :parent_id => comment.id))%>
-        <%= link_to("删除", article_comment_path(article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
-      </div>
+    <div class="avatar"><%= image_tag avatar_url(comment.user_avatar_token), :size => "64x64", :alt => "Avatar" %></div>
+    <div class="main">
+        <%= render "comments/comment_headline", :comment => comment %>
+        <div class="comment_content">
+            <%= format(comment.body) %>
+            <div class="actions">
+                <%= link_to("回复", new_article_comment_path(article, :parent_id => comment.id))%>
+                <%= link_to("删除", article_comment_path(article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="clear"></div>
+    <div class="clear"></div>
 <% end %>

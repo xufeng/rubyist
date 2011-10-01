@@ -1,28 +1,28 @@
 <% content_for(:title) do %>
-  <%= @article.title %> 
+    <%= @article.title %>
 <% end %>
 
 <div class="title">
-  <h2><%= @article.title %></h2>
+    <h2><%= @article.title %></h2>
 </div>
 <div>
-  作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
-<span>
-  时间：<%= @article.created_at %>
-</span>
- </div>
- <div class="content">
-   <%= format(@article.body) %>
-   <p>
-     标签
-     <%= tag_with_link(@article) %>
-   </p>
-   <%= operation_links_for(current_user, @article)%>
- </div>
- <div id="comments">
-   <%= nested_comments @article.comments.includes(:user).arrange(:order => "created_at asc") %>
-   <%= paginate @comments %>
-   <%= render "comments/new", :comment => @comment, :article => @article %>
- </div>
+    作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
+    <span>
+        时间：<%= @article.created_at %>
+    </span>
+</div>
+<div class="content">
+    <%= format(@article.body) %>
+    <p>
+        标签
+        <%= tag_with_link(@article) %>
+    </p>
+    <%= operation_links_for(current_user, @article)%>
+</div>
+<div id="comments">
+    <%= nested_comments @article.comments.includes(:user).arrange(:order => "created_at asc") %>
+    <%= paginate @comments %>
+    <%= render "comments/new", :comment => @comment, :article => @article %>
+</div>
 
 

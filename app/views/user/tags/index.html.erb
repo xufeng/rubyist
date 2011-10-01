@@ -1,10 +1,10 @@
 <% content_for(:title) do %>
-  <%= @user.nick_name %>的标签 
+    <%= @user.nick_name %>的标签
 <% end %>
 <ul>
-  <% @tags.each do |tag| %>
-    <li>
-      <%= link_to tag.name, user_tag_path(@user, tag) %>
-    </li>
-  <% end %>
+    <% @tags.each do |tag| %>
+        <li>
+            <%= link_to tag.name, user_tag_path(@user, tag) %>
+        </li>
+    <% end %>
 </ul>
