@@ -9,4 +9,11 @@ class Comment < ActiveRecord::Base
 
   delegate :avatar_token, :to => :user, :prefix => true, :allow_nil => true 
   delegate :nick_name,    :to => :user, :prefix => true, :allow_nil => true
+
+  after_create :update_article_ranking
+  after_destroy :update_article_ranking
+
+  def update_article_ranking
+    self.article.reload.save
+  end
 end
