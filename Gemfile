@@ -21,6 +21,7 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem "ancestry"
 #BBRedCloth for bbcode and textite
 gem 'BBRedCloth', :require=>"RedCloth"
+gem 'nokogiri'
 
 group :development do
   gem 'mysql2'
