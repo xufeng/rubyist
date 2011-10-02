@@ -5,10 +5,15 @@
 <div class="title">
     <h2><%= @article.title %></h2>
 </div>
-<div>
-    作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
-    <span>
-        时间：<%= @article.created_at %>
+<div class="article-info">
+    <span class="author">
+      作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
+    </span>
+    <span class="time">
+      时间：<%= I18n.l(@article.created_at, :format => :long) %>
+    </span>
+    <span class="comment-num">
+      评论(<%= @article.comments_count %>)
     </span>
 </div>
 <div class="content">

@@ -3,26 +3,3 @@
 <% end %>
 
 <p>Rubyist是一个多人协作的群体Blog，旨在为国内开发者提供新鲜和高质量的Ruby文章。</p>
-
-<h2>Textile</h2>
-<table width="800">
-    <% @textiles.each do |html| %>
-        <tr>
-            <td><%= html %></td><td><%= format(html) %></td>
-        </tr>
-    <% end %>
-</table>
-
-<h2>Gist</h2>
-<p><%= @gist %></p>
-<p><%= format(@gist) %></p>
-
-<h2>BBcode</h2>
-<table width="800">
-    <% @bbcodes.each do |html| %>
-        <tr>
-            <td><%= html %></td><td><%= format(html) %></td>
-        </tr>
-    <% end %>
-</table>
-

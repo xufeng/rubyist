@@ -14,7 +14,7 @@
         <%= f.label :tag_list, "标签", :size => 45 %><br />
         <%= f.text_field :tag_list %>
     </div>
-    <div class="actions">
-        <%= f.submit("发表") %>
+    <div>
+      <%= f.submit("发表") %><%= render "share/format_helper_links"%>
     </div>
 <% end %>

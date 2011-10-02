@@ -1,0 +1,12 @@
+<% content_for(:title) do %>
+  Textitle格式示例
+<% end %>
+<h2>Textile格式示例</h2>
+<table width="800">
+  <% @textiles.each do |html| %>
+    <tr>
+      <td><%= html %></td><td><%= format(html) %></td>
+    </tr>
+  <% end %>
+</table>
+

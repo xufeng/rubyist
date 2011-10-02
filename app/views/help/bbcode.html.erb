@@ -1,0 +1,12 @@
+<% content_for(:title) do %>
+  BBCode格式示例
+<% end %>
+<h2>BBcode格式示例</h2>
+<table width="800">
+  <% @bbcodes.each do |html| %>
+    <tr>
+      <td><%= html %></td><td><%= format(html) %></td>
+    </tr>
+  <% end %>
+</table>
+
