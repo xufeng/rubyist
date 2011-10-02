@@ -40,3 +40,4 @@ module Rubyist
     config.assets.enabled = true
   end
 end
+ActiveSupport::XmlMini.backend='Nokogiri'
