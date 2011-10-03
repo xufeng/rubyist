@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
       current_user.tag(@article, :with => params[:article][:tag_list], :on => :tags)
       redirect_to @article, :notice => '文章成功！'
     else
+      @article.tag_list = params[:article][:tag_list]
       render :action => "new" 
     end
   end
