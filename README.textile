@@ -1,4 +1,20 @@
-h1. bbcode and texitle
-* "BBCode":http://en.wikipedia.org/wiki/BBCode
-* "Texitle":http://en.wikipedia.org/wiki/Textile_(markup_language)
-* "RedCloth":https://github.com/hooopo/redcloth
+h1. 关于
+Rubyist是一个多人协作的群体Blog，旨在为国内开发者提供新鲜和高质量的Ruby文章
+h1. 特性
+* 支持BBcode
+* 支持Textitle
+* 代码高亮
+* 支持Gist
+* 支持Avatar头像
+* 可以方便部署到Heroku
+* Github登录
+* 嵌套回复
+h1. 协议
+This program is free softwareyou can redistribute it and /or modify
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundataioneither version 2 of the License,or (at 
+your option) any later version.
+
+You should have read the GNU General Public License before start "RTFSC".
+
+If not,see <http://www.gnu.org/licenses/>
