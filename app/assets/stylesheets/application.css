@@ -28,27 +28,3 @@ ul.hmenu li {
   color:black;
   text-decoration:none;
 }
-
-.field_with_errors {
-  display:inline;
-}
-.field_with_errors input {
-  border-color:red; 
-}
-
-.field_with_errors textarea {
-  border-color:red;
-}
-
-.article-info {
-  color: darkGray;
-}
-
-.author {
-  font-weight: bold;
-}
-
-.reply textarea{
-  width:795px;
-  height:200px;
-}
