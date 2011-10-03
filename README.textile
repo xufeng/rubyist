@@ -19,12 +19,12 @@ h1. 演示
 
 h1. 协议
 
-  This program is free softwareyou can redistribute it and /or modify
-  it under the terms of the GNU General Public License as published by 
-  the Free Software Foundataioneither version 2 of the License,or (at 
-  your option) any later version.
+This program is free softwareyou can redistribute it and /or modify
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundataioneither version 2 of the License,or (at 
+your option) any later version.
 
-  You should have read the GNU General Public License before start "RTFSC".
+You should have read the GNU General Public License before start "RTFSC".
 
-  If not,see <http://www.gnu.org/licenses/>
+If not,see <http://www.gnu.org/licenses/>
 
