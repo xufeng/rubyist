@@ -39,3 +39,16 @@ ul.hmenu li {
 .field_with_errors textarea {
   border-color:red;
 }
+
+.article-info {
+  color: darkGray;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.reply textarea{
+  width:795px;
+  height:200px;
+}

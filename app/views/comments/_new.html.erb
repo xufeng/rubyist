@@ -3,11 +3,10 @@
         <%= render :partial => "share/error_message", :locals => {:target => comment} %>
         <div class="field">
             <%= f.hidden_field :parent_id, :value => params[:parent_id] %>
-            <%= f.label :body, "回复" %><br />
             <%= f.text_area :body, :cols => 80, :rows => 20 %>
         </div>
         <div>
-          <%= f.submit("发表") %><%= render "share/format_helper_links"%>
+          <%= f.submit("回复") %><%= render "share/format_helper_links"%>
         </div>
     <% end %>
 </div>
