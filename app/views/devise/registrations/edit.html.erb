@@ -18,7 +18,7 @@
     <p><%= f.label :current_password, "当前密码" %> <i>(需要你现在的密码来确认修改)</i><br />
         <%= f.password_field :current_password %></p>
 
-    <p><%= f.submit "更新" %></p>
+      <p><%= f.submit "更新", :disable_with => '请稍等...' %></p>
 <% end %>
 
 <h3>注销帐号</h3>

@@ -15,7 +15,7 @@
     <p><%= f.label :password_confirmation, "重复密码" %><br />
         <%= f.password_field :password_confirmation %></p>
 
-    <p><%= f.submit "确认" %></p>
+      <p><%= f.submit "确认", :disable_with => '请稍等...' %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

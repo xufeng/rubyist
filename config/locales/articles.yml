@@ -6,6 +6,7 @@ zh-CN:
       article:
         title: 标题        
         body: 内容
+        visible: 可见性
         comments_count: 评论数量
         created_at: 创建时间
         updated_at: 更新时间

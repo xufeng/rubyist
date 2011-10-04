@@ -6,7 +6,7 @@
             <%= f.text_area :body, :cols => 80, :rows => 20 %>
         </div>
         <div>
-          <%= f.submit("回复") %><%= render "share/format_helper_links"%>
+          <%= f.submit("回复", :disable_with => '请稍等...') %><%= render "share/format_helper_links"%>
         </div>
     <% end %>
 </div>

@@ -15,6 +15,6 @@
         <%= f.text_field :tag_list %>
     </div>
     <div>
-      <%= f.submit("发表") %><%= render "share/format_helper_links"%>
+      <%= f.submit("发表", :disable_with => '请稍等...') %><%= render "share/format_helper_links"%>
     </div>
 <% end %>

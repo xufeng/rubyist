@@ -15,4 +15,5 @@ class Article < ActiveRecord::Base
   delegate :avatar_token, :to => :user, :prefix => true, :allow_nil => true 
 
   scope :hottest, order("ranking DESC") 
+  scope :visible_by_all, where(:visible => true)
 end

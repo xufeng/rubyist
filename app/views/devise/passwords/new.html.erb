@@ -6,7 +6,7 @@
     <p><%= f.label :email, "邮箱" %><br />
         <%= f.email_field :email %></p>
 
-    <p><%= f.submit "发送重新设置密码邮件" %></p>
+      <p><%= f.submit "发送重新设置密码邮件", :disable_with => '请稍等...' %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

@@ -11,7 +11,7 @@
         <p><%= f.check_box :remember_me %> <%= f.label :remember_me, "记住我？" %></p>
     <% end -%>
 
-    <p><%= f.submit "登录" %></p>
+    <p><%= f.submit "登录", :disable_with => '请稍等...' %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
