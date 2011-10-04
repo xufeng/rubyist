@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nick_name
 
-  validates :nick_name, :presence => true, :uniqueness => true,  :length => 1..15
-  validates :nick_name, :format => /[-a-z0-9_]+/i
+  validates :nick_name, :presence => true, :uniqueness => true,  :length => 1..50
+  validates :nick_name, :format => /\A[-a-z0-9_]+\Z/i
 
   has_many :articles, :dependent => :destroy
   has_many :comments, :dependent => :destroy
