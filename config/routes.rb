@@ -9,11 +9,11 @@ Rubyist::Application.routes.draw do
   resources :user, :only => :show do
     scope :module => "user" do
       resources :articles, :only => [:index, :show]
-      resources :tags, :only => [:index, :show]
+      resources :tags, :constraints => { :id => /.*/ }, :only => [:index, :show]
     end
   end
 
-  resources :tags, :only => [:index, :show]
+  resources :tags, :constraints => { :id => /.*/ }, :only => [:index, :show]
   
   match "about"         => "about#index",   :as => :about
   match "help/bbcode"   => "help#bbcode",   :as => :bbcode
