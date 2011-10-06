@@ -16,4 +16,5 @@ class Article < ActiveRecord::Base
 
   scope :hottest, order("ranking DESC") 
   scope :visible_by_all, where(:visible => true)
+
 end

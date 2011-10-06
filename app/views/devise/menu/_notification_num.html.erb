@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+    <li>
+        (<%= link_to(current_user.notifications.where(:read => false).count, "javascript:void(0)") %>)
+    </li>
+<% end %>

@@ -6,7 +6,7 @@
             <%= format(comment.body) %>
             <div class="actions">
                 <%= link_to("回复", new_article_comment_path(article, :parent_id => comment.id))%>
-                <%= link_to("删除", article_comment_path(article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user%>
+                <%= link_to("删除", article_comment_path(article, comment), :method => :delete, :confirm => "确定?") if comment.user == current_user && !comment.has_children?%>
             </div>
         </div>
     </div>

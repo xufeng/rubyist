@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111004153107) do
+ActiveRecord::Schema.define(:version => 20111006180346) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(:version => 20111004153107) do
   end
 
   add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.boolean  "read",       :default => false
+    t.integer  "kind",       :default => 0
+    t.integer  "comment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
