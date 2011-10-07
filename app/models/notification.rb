@@ -3,8 +3,8 @@ class Notification < ActiveRecord::Base
   belongs_to :article
   belongs_to :comment
 
-  delegate :nick_name, :to => :user,    :prefix => true, :allow_nil => true
-  delegate :title,     :to => :article, :prefix => true, :allow_nil => true
+  delegate :user_nick_name, :to => :comment, :prefix => true, :allow_nil => true
+  delegate :title,          :to => :article, :prefix => true, :allow_nil => true
 
   scope :unread, where(:read => false)
 
