@@ -19,7 +19,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = current_user.comments.find_by_id(params[:id])
-    @comment.destroy
+    if @comment.has_children?
+      flash[:notice] = "被引用过的回复不能删除！"
+    else
+      @comment.destroy
+    end
     redirect_to article_path(@comment.article)
   end
 end

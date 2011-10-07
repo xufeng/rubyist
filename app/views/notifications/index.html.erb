@@ -1,0 +1,16 @@
+<% content_for(:title) do %>
+    所有通知
+<% end %>
+
+<h1>所有通知</h1>
+<ul class="articles-list">
+    <% @notifications.each do |n| %>
+        <li>
+            <%= "<b>[新]</b>".html_safe  if n.unread? %>
+
+            <%= link_to(n.user_nick_name, user_path(n.user)) %>回复了文章<%= link_to(n.article_title, article_path(n.article, :anchor => "comment_#{n.comment_id}")) %>
+        </li>
+    <% end %>
+</ul>
+
+<%= paginate @notifications %>

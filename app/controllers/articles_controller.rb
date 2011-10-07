@@ -1,6 +1,7 @@
 #coding: utf-8
 class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  after_filter :mark_notifications_as_read, :only => [:show]
 
   def index
     @articles = Article.includes(:user).page(params[:page])
@@ -49,5 +50,11 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.find(params[:id])
     @article.destroy
     redirect_to user_articles_path(current_user), :notice => "删除成功！"
+  end
+
+  private
+  
+  def mark_notifications_as_read
+    @article.marked_as_read_by_user!(current_user)
   end
 end

@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+    <li>
+        <%= link_to("提醒", notifications_path) %>(<%= current_user.notifications.unread.count %>)
+    </li>
+<% end %>

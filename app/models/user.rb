@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :articles, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_many :notifications, :dependent => :destroy
 
   acts_as_tagger
 
