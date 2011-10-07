@@ -14,6 +14,7 @@ Rubyist::Application.routes.draw do
   end
 
   resources :tags, :constraints => { :id => /.*/ }, :only => [:index, :show]
+  resources :notifications, :only => [:index]
   
   match "about"         => "about#index",   :as => :about
   match "help/bbcode"   => "help#bbcode",   :as => :bbcode
