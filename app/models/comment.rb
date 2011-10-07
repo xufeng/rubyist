@@ -12,7 +12,7 @@ class Comment < ActiveRecord::Base
   delegate :nick_name,    :to => :user, :prefix => true, :allow_nil => true
 
   def related_users
-    users = self.article.comments.includes(:user).map{|comment| comment.user} + [self.article.user]
+    users = self.article.comments.includes(:user).map{|comment| comment.user} + [self.article.user] - [self.user]
     users.uniq
   end
 end

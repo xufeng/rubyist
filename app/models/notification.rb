@@ -15,4 +15,9 @@ class Notification < ActiveRecord::Base
   def unread?
     !self.read
   end
+
+  def marked_as_read!
+    self.update_attribute(:read, true)
+  end
+  
 end
