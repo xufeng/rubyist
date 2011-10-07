@@ -7,7 +7,7 @@
 </div>
 <div class="article-info">
     <span class="author">
-      作者：<%= link_to(@article.user_nick_name, user_articles_path(@article.user))%>
+      作者：<%= link_to(@article.user_nick_name, user_path(@article.user))%>
     </span>
     <span class="time">
       时间：<%= I18n.l(@article.created_at, :format => :long) %>

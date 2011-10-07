@@ -1,11 +1,12 @@
 Rubyist::Application.routes.draw do
-
+  match "user/:user_id" => "user/articles#index", :as => :user
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :articles do
     resources :comments, :only => [:new, :destroy, :create]
   end
-
+  
   resources :user, :only => :show do
     scope :module => "user" do
       resources :articles, :only => [:index, :show]
