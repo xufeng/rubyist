@@ -1,0 +1,8 @@
+<div style="float:right">
+    <a title="分享到：新浪微博" onclick="postToSinaWeibo('<%= article_url(article) %>', '<%= j article.title %>')" href="javascript:void(0)" class="share_dao">
+        <%= image_tag("logo/sina-small.png", :title => "分享到：新浪微博") %>
+    </a>
+    <a title="分享到：QQ微博"  onclick="postToQqWeibo('<%= article_url(article) %>', '<%= j article.title %>')"  href="javascript:void(0)"  class="share_dao">
+        <%= image_tag("logo/qq-small.png", :title => "分享到：QQ微博") %>
+    </a>
+</div>
