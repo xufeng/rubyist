@@ -33,7 +33,7 @@ class Article < ActiveRecord::Base
   def escaped_title
     self.title.
       strip.
-      gsub(/[\s-]+/, "-").
+      gsub(/[\s\.-]+/, "-").
       gsub(/[^\p{han}a-z0-9-]/i, "").
       downcase
   end
