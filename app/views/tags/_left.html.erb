@@ -2,7 +2,7 @@
 <ul>
     <% User.limit(20).order("id DESC").each do |user| %>
         <li>
-            <%= link_to user.nick_name, user_articles_path(user) %>
+            <%= link_to user.nick_name, user_path(user) %>
         </li>
     <% end %>
 </ul>
