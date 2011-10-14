@@ -4,7 +4,7 @@
     <% end %>
     <span class="name">
         <% if comment.user %>
-            <%= link_to comment.user_nick_name, user_articles_path(comment.user) %>
+            <%= link_to comment.user_nick_name, user_path(comment.user) %>
         <% end %>
     </span>
     <% unless comment.created_at.nil? %>

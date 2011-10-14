@@ -1,6 +1,7 @@
 #coding: utf-8
 class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :extract_real_id_from_params
   after_filter :mark_notifications_as_read, :only => [:show]
 
   def index
@@ -56,5 +57,9 @@ class ArticlesController < ApplicationController
   
   def mark_notifications_as_read
     @article.marked_as_read_by_user!(current_user)
+  end
+
+  def extract_real_id_from_params
+    params.merge!("id" => params["id"].split("-", 2)[0]) if params["id"]
   end
 end

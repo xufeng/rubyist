@@ -26,4 +26,16 @@ class Article < ActiveRecord::Base
     end
   end
 
+  def to_param
+    "#{id}-#{escaped_title}"
+  end
+
+  def escaped_title
+    self.title.
+      strip.
+      gsub(/[\s-]+/, "-").
+      gsub(/[^\p{han}a-z0-9-]/i, "").
+      downcase
+  end
+
 end
