@@ -13,6 +13,15 @@ h1. 特性
 * Github登录
 * 嵌套回复
 
+h1. Heroku配置
+
+heroku config:add RUBYIST_EMAIL=email RUBYIST_PASSWORD=password RUBYIST_HOST=host
+
+h1. 开发环境配置（~/.bashrc）
+
+# export RUBYIST_EMAIL=email
+# export RUBYIST_PASSWORD=password
+
 h1. 演示
 
   "Rubyeye":http://rubyeye.herokuapp.com.
