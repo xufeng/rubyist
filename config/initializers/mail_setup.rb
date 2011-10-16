@@ -1,6 +1,6 @@
 if Rails.env != 'test'
 
-  c = YAML::load(File.open("#{Rails.root}/config/email.yml"))
+  c =YAML::load(ERB.new(File.read("#{Rails.root}/config/email.yml")).result)
 
   ActionMailer::Base.smtp_settings = {
     :address => c[Rails.env]['address'],
