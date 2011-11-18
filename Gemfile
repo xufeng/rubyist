@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.2'
 gem 'haml'
 gem 'rails-i18n'
 # Asset template engines
@@ -15,7 +15,7 @@ gem 'acts-as-taggable-on'
 
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "kaminari"
-gem 'devise'
+gem 'devise', '~>1.4.7'
 gem "coderay"
 gem "oa-oauth", :require => "omniauth/oauth"
 gem "ancestry"
