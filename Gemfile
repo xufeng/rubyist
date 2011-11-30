@@ -25,10 +25,10 @@ gem "ancestry", '~>1.2'
 #BBRedCloth for bbcode and textite
 gem 'BBRedCloth', '~>0.8', :require=>"RedCloth"
 gem 'nokogiri', '~>1.5'
-gem 'taps', '~>0.3', :require => false
 group :development do
   gem 'mysql2', '~>0.3'
   gem "heroku", '~>2.14'
+  gem 'taps', '~>0.3', :require => false
   gem 'capistrano', '~>2.9'
 end
 
